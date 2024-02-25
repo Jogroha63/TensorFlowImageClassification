@@ -1,5 +1,4 @@
 import matplotlib.pyplot as plt
-import numpy as np
 import tensorflow as tf
 
 from tensorflow import keras
@@ -9,17 +8,12 @@ from tensorflow.keras.models import Sequential
 from datetime import date
 
 
-# train_dataset_path = "https://github.com/marcusklasson/GroceryStoreDataset/tree/master/dataset/train"
-# train_data_dir = tf.keras.utils.get_file('petImages.zip', origin=dataset_path, extract=True)
-# train_data_dir = pathlib.Path(data_dir).with_suffix('')
-
-
 batch_size = 32
 img_height = 180
 img_width = 180
 
 train_ds = tf.keras.utils.image_dataset_from_directory(
-  "C:/Users/Jonas/OneDrive/Desktop/Facharbeit/Code/food_dataset/train",
+  "./food_dataset",
   validation_split=0.2,
   subset="training",
   seed=123,
@@ -27,7 +21,7 @@ train_ds = tf.keras.utils.image_dataset_from_directory(
   batch_size=batch_size)
 
 val_ds = tf.keras.utils.image_dataset_from_directory(
-  "C:/Users/Jonas/OneDrive/Desktop/Facharbeit/Code/food_dataset/val",
+  "./food_dataset",
   validation_split=0.2,
   subset="validation",
   seed=123,
@@ -48,8 +42,6 @@ normalization_layer = layers.Rescaling(1./255)
 normalized_ds = train_ds.map(lambda x, y: (normalization_layer(x), y))
 image_batch, labels_batch = next(iter(normalized_ds))
 first_image = image_batch[0]
-# Notice the pixel values are now in `[0,1]`.
-print(np.min(first_image), np.max(first_image))
 
 
 num_classes = len(class_names)
@@ -102,7 +94,7 @@ model.compile(optimizer='adam',
 
 model.summary()
 
-
+"""
 epochs = 15
 history = model.fit(
   train_ds,
@@ -144,3 +136,4 @@ date = str(date.today())
 # Save the model.
 with open(date+'.tflite', 'wb') as f:
   f.write(tflite_model)
+"""
