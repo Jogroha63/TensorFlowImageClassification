@@ -5,7 +5,7 @@ import random
 import string
 
 
-# Dataset to get class names
+# Erstellen eines Datensatzes, um die Klassennamen zu bekommen
 batch_size = 32
 img_height = 180
 img_width = 180
@@ -13,18 +13,20 @@ img_width = 180
 temp_ds = tf.keras.utils.image_dataset_from_directory(
   "./food_dataset",
   validation_split=0.2,
-  subset="training",
+  subset="validation",
   seed=123,
   image_size=(img_height, img_width),
   batch_size=batch_size)
 
 class_names = temp_ds.class_names
 
-
+# Vorbereiten des Modells
 interpreter = tf.lite.Interpreter(model_path="./2024-02-25.tflite")
 
 classify_lite = interpreter.get_signature_runner('serving_default')
 
+
+# Klassifizierung eines Bildes vo einer eingegebenen URL
 print("Input a URL of an image to classify: ", end="")
 url = input()
 filename = "".join(random.choices(string.ascii_uppercase + string.digits, k=10))
