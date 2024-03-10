@@ -43,9 +43,11 @@
 
 
 \section{Einführung}
-KI ist zu einem sehr wichtigen Bestandteil unserer Gesellschaft geworden. Es stehen Chat-Bots wie ChatGPT zur Verfügung, welche Texte zu jedem beliebigen Thema in jeder beliebigen Art und in jeder Sprache schreiben können. Es gibt KIs zur Bildgenerierung wie Midjourney, welche Bilder in Sekunden generieren können, für die Künstler Wochen brauchen würden. KI wird ein immer größerer Teil unseres Alltages, da immer mehr große Firmen KI-Features in ihre Produkte einbauen. Viele Handys haben beispielsweise Funktionen, mit denen man Teile aus Bildern ausschneiden kann und das der Hintergrund mithilfe einer KI anschließend ausgefüllt wird.
+Künstliche Intelligenz ist zu einem sehr wichtigen Bestandteil unserer Gesellschaft geworden. Es stehen Chatbots wie ChatGPT zur Verfügung, welche Texte zu jedem beliebigen Thema in jeder beliebigen Art und in jeder Sprache schreiben können. Es gibt KIs zur Bildgenerierung wie Midjourney, welche Bilder in Sekunden generieren können, für die Künstler Wochen brauchen würden. Künstliche Intelligenz wird ein immer größerer Teil unseres Alltages, da immer mehr große Firmen KI-Features in ihre Produkte einbauen. Viele Handys haben beispielsweise Funktionen, mit denen man Teile aus Bildern ausschneiden kann und das der Hintergrund mithilfe einer KI anschließend ausgefüllt wird.
 
-Maschinelles Lernen ist ein Teilgebiet der KI. Man kann durch dieses Gebiet eigene erste KI-Projekte erstellen und testen. Es ist also ein guter Einstieg in die KI. Daher habe ich mich dazu entschieden, in diesem Gebiet meine Facharbeit zu schreiben und in dem Prozess mein erstes KI-Programm zu erstellen. Da ich allerdings nur Low-End-Computer zur Verfügung habe, möchte ich mich dabei auch auf die Performance des Programm konzentrieren und ein relativ gutes Modell entwickeln, ohne dabei eine sehr lange Zeit auf Ergebnisse warten zu müssen.
+Maschinelles Lernen ist ein Teilgebiet der KI. Man kann durch dieses Gebiet eigene erste KI-Projekte erstellen und testen. Es ist also ein guter Einstieg in die KI. Daher habe ich mich dazu entschieden, in diesem Gebiet meine Facharbeit zu schreiben und in dem Prozess mein erstes KI-Programm zu erstellen. Da ich allerdings nur Low-End-Computer zur Verfügung habe, möchte ich mich dabei auch auf die Performance des Programm konzentrieren und ein relativ gutes Modell entwickeln, ohne dabei eine sehr lange Zeit auf Ergebnisse warten zu müssen. Daher werde ich mich insbesondere mit der Frage beschäftigen, wie man mithilfe von TensorFlow ein Modell möglichst performant trainiert.
+
+In der Facharbeit werde ich zunächst die theoretischen Grundlagen über maschinelles Lernen und über neuronale Netze erläutern. Anschließend werde ich darauf eingehen, wie man diese Grundlagen in einem Programm umsetzt und dabei die Bibliotheken TensorFlow und Keras erläutern, welche ich für mein Projekt verwenden werde. Danach werde ich mein Vorgehen bei dem Schreiben des Programms erklären und dabei auch das Problem des Overfittings, auf das ich gestoßen bin, erläutern. Abschließend werde ich ein Fazit ziehen, in dem ich meine Ergebnisse und Erkenntnisse hinsichtlich des Maschine Learnings erläutern werde.
 
 
 \chapter{Theoretische Grundlagen}
@@ -162,8 +164,9 @@ Das Modell kann nun mit der Methode \verb+tf.lite.TFLiteConverter.from_keras_mod
 
 
 \chapter{Fazit}
-Maschinelles Lernen ist ein zeitaufwendiges und ressourcenintensives Teilgebiet der Informatik und künstlichen Intelligenz. Um auch auf Low-End-Computern ein einigermaßen gutes Modell erstellen zu können ohne sehr lange dafür warten zu müssen kann man den Datensatz auf dem Arbeitsspeicher zwischenspeichern mithilfe der \verb+cache()+-Methode 
-und man kann die Anzahl der Epochen anpassen. Um schnell Daten vorhersagen zu können bzw. um schnell Bilder klassifizieren zu können kann man das Keras-Modell in ein TensorFlow-Lite Modell speichern und so sogar auf einem Smartphone verwenden.
+Maschinelles Lernen ist ein zeitaufwendiges und ressourcenintensives Teilgebiet der Informatik und künstlichen Intelligenz. Um auch auf Low-End-Computern ein einigermaßen gutes Modell erstellen zu können ohne sehr lange dafür warten zu müssen kann man den Datensatz auf dem Arbeitsspeicher zwischenspeichern mithilfe der \verb+cache()+-Methode und man kann die Anzahl der Epochen anpassen.  Um schnell Daten vorhersagen zu können bzw. um schnell Bilder klassifizieren zu können kann man das Keras-Modell in ein TensorFlow-Lite-Modell speichern und so sogar auf einem Smartphone verwenden. Allerdings ist das Trainieren von Modellen nicht für Low-End-Computer geeignet, man sollte einen möglichst guten Computer bzw. Laptop verwenden, um ein gutes Modell schnell erstellen zu können. Das Klassifizieren von Bildern in einem TensorFlow-Lite-Modell ist allerdings kein langer Prozess und kann auch auf Low-End-PCs durchgeführt werden.
+
+Man kann dieses Projekt in Zukunft zudem noch verbessern, indem man die Werte der Layer des Modell anpasst oder den Datensatz erweitert. Man könnte mehr mögliche Klassen hinzufügen und so die Funktionalität erweitern. Wenn das Modell gut genug ist kann man es auch ähnlich wie ChatGPT als Programm der Öffentlichkeit zur Verfügung gestellt werden. Dafür müsste allerdings viel Zeit und eventuell auch Geld investiert werden, um eine gute Benutzeroberfläche schaffen zu können.
 
 
 \appendix
@@ -291,6 +294,10 @@ with open("model.tflite", "wb") as f:
 
 
 \newpage
+
+\Large
+Selbstständigkeitserklärung
+\vspace{0.5cm}
 
 \includegraphics[width=0.9\textwidth]{selbststaendigkeitserklaerung}
 
