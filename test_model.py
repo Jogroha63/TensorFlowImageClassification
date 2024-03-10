@@ -6,17 +6,12 @@ import string
 
 
 # Erstellen eines Datensatzes, um die Klassennamen zu bekommen
-batch_size = 32
 img_height = 180
 img_width = 180
 
 temp_ds = tf.keras.utils.image_dataset_from_directory(
-  "./food_dataset",
-  validation_split=0.2,
-  subset="validation",
-  seed=123,
-  image_size=(img_height, img_width),
-  batch_size=batch_size)
+    "./food_dataset",
+    image_size=(img_height, img_width))
 
 class_names = temp_ds.class_names
 
@@ -27,7 +22,7 @@ classify_lite = interpreter.get_signature_runner('serving_default')
 
 
 # Klassifizierung eines Bildes vo einer eingegebenen URL
-print("Input a URL of an image to classify: ", end="")
+print("Enter the URL of an image to classify: ", end="")
 url = input()
 filename = "".join(random.choices(string.ascii_uppercase + string.digits, k=10))
 path = tf.keras.utils.get_file(filename, origin=url)
